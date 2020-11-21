@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+
+head
+  title=t
+
+body
+  h1=heading
+  .flex-container
+    #posts
+      if posts
+        each post in posts
+          .post
+            h1=post.title
+            p Made by:
+            p=post.author
+            h2=post.content
+      else
+        h1 Nothing to Display

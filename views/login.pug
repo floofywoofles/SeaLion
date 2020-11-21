@@ -1,0 +1,16 @@
+doctype html
+html(lang='en')
+
+head
+  title Social - Login
+
+body
+  h1 Login
+  form(action='/auth/login' method="POST")
+    h2 Username:
+    input(type="username" placeholder="Enter a valid username" name="username")
+    h2 Password:
+    input(type="password" placeholder="Enter a valid password" name="password")
+    br
+    br
+    input(type='submit' value='Login')
