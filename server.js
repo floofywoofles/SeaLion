@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 const helmet = require("helmet");
 const compression = require("compression");
 require("dotenv").config();
@@ -27,14 +26,12 @@ app.use(compression()); // compress all routes
 app.use(helmet());
 
 app.set('view engine', 'pug');
-
 app.use(session({
-  name: 'nodesession',
-  secret: 'my express secret',
+  secret: 'keyboard cat',
+  resave: false,
   saveUninitialized: true,
-  resave: true,
-  store: new FileStore()
-}));
+  cookie: { secure: true }
+}))
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
